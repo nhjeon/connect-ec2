@@ -1,5 +1,5 @@
 import getopt
-
+import os
 import boto3
 import sys
 from botocore.exceptions import ClientError, ProfileNotFound, NoCredentialsError
@@ -23,7 +23,7 @@ def select_ec2(ec2_list):
     if selection >= len(ec2_list):
         print("invalid number")
         sys.exit()
-    print('ssh -i "{}.pem" ec2-user@{}'.format(ec2_list[selection][1], ec2_list[selection][2]))
+    return ('ssh -i "{}.pem" ec2-user@{}'.format(ec2_list[selection][1], ec2_list[selection][2]))
 
 
 def get_ec2_list(client):
@@ -64,8 +64,8 @@ def main(argv):
 
     client = get_aws_client(profile)
     ec2_list = get_ec2_list(client)
-    select_ec2(ec2_list)
-
+    cmd = select_ec2(ec2_list)
+    os.system(cmd)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
