@@ -1,8 +1,8 @@
-# create-ec2-ssh-command
+# connect-ec2
 
-## What's create-ec2-ssh-command?
+## What's connect-ec2?
 
-* A simple aws ec2 ssh command creator
+* A simple aws ec2 connector
 
 ## Requirements
 
@@ -15,6 +15,6 @@ pip install boto3
 
 ## Usage
 ```bash
-python create-ec2-ssh-command.py
-python create-ec2-ssh-command.py -p dev
+python connect-ec2.py
+python connect-ec2.py -p dev
 ```
