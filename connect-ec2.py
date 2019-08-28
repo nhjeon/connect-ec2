@@ -18,7 +18,7 @@ def get_aws_client(profile='default'):
 def select_ec2(ec2_list):
     for i in range(len(ec2_list)):
         print('{:>0}:  {:<32}  {:<50}'.format(i, ec2_list[i][0], ec2_list[i][2]))
-    selection = input("select number you want to create ec2 ssh command: ")
+    selection = input("select number you want to connect: ")
     selection = int(selection)
     if selection >= len(ec2_list):
         print("invalid number")
@@ -47,7 +47,7 @@ def get_ec2_list(client):
 
 
 def main(argv):
-    print("usage: create-ec2-ssh-command -p <profile>")
+    print("usage: connect-ec2 -p <profile>")
 
     profile = None
 
